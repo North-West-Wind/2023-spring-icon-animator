@@ -128,4 +128,6 @@ dist
 
 # self-defined
 lib
-assets
+assets/*.xcf
+assets/product*
+assets/generated

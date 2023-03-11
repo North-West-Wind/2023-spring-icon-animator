@@ -1,7 +1,7 @@
-import { Canvas, Image, loadImage } from "canvas";
+import { Canvas, loadImage } from "canvas";
 import * as fs from "fs";
-import { fillCanvas, fillCanvasRegion, fillNewCanvas } from "image-filler";
-import { animateSines, animateSinesFrames, drawSine, FillMode, SineWave } from "layered-sine";
+import { fillCanvasRegion } from "image-filler";
+import { animateSinesFrames, drawSine, FillMode, SineWave } from "layered-sine";
 import { encode } from "upng-js";
 
 const FPS = 12;
@@ -28,9 +28,7 @@ const cloudffg = new SineWave(30, 300, 2, Math.random() * Math.PI, 60);
 cloudffg.fill = FillMode.UP;
 cloudffg.color = 0x898989;
 
-//const amount = animateSinesFrames([cloudbbg, cloudbg, cloudfg, cloudffg], canvas, FPS, __dirname + "/../assets/generated");
-const amount = 240;
-//fs.writeFileSync(__dirname + "/../generated.png", Buffer.from(animateSines([cloudbbg, cloudbg, cloudfg, cloudffg], canvas, FPS)));
+const amount = animateSinesFrames([cloudbbg, cloudbg, cloudfg, cloudffg], canvas, FPS, __dirname + "/../assets/generated");
 
 (async () => {
 	const inkling = await loadImage(__dirname + "/../assets/inkling.png");
